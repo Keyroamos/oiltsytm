@@ -1,0 +1,382 @@
+Tarita Petroleum Management System (TPMS)  |  System Documentation, Part 1  |  Draft v1.0 
+Page 1 
+Tarita Petroleum Management System (TPMS) 
+System Documentation, Part 1: Business and System Definition 
+Document control 
+Organization 
+Tarita Petroleum Limited 
+Business type 
+Oil Marketing Company (OMC), Kenya 
+Operating model 
+Wholesale petroleum procurement and sales 
+Version / status 
+1.1, Draft — tax and Local/Transit requirements added 
+Date 
+October 1, 2026 
+Next document 
+Part 2: Detailed Tarita OMC Business Processes 
+1. Purpose of this document 
+This document defines the business context, scope, and high-level structure of the Tarita Petroleum 
+Management System (TPMS). It is based strictly on the information provided about Tarita's operations. 
+Activities Tarita has not said it performs are deliberately excluded. Items that still need confirmation are 
+collected in Section 10 so they can be resolved before design starts. 
+2. Company and business model 
+Tarita Petroleum Limited is an Oil Marketing Company operating in Kenya. The principal commercial 
+activity relevant to TPMS is purchasing petroleum products from petroleum importers and suppliers, 
+and selling those products to downstream petroleum retailers and customers. TPMS is therefore 
+designed around Tarita's role as a wholesale petroleum buyer and seller. 
+UPSTREAM SUPPLIER 
+Gulf Energy Limited 
+→ 
+WHOLESALE OMC 
+Tarita Petroleum Limited 
+→ 
+DOWNSTREAM CUSTOMER 
+Diesel Power Company 
+ 
+Figure 1. Gulf Energy Limited and Diesel Power Company are the examples provided for the upstream and downstream 
+relationships and are used here for illustration. 
+Relationship 
+Direction 
+TPMS function 
+Upstream 
+Supplier to Tarita 
+Procurement (fuel purchases) 
+Downstream 
+Tarita to customer 
+Wholesale sales 
+3. System purpose 
+TPMS gives Tarita a single, reliable record of its wholesale petroleum business, from purchase through to 
+payment. It must let management answer the following questions at any time. 
+Area 
+Questions TPMS must answer 
+Purchasing 
+What did we purchase, from whom, which product, how much, and at what cost (in original 
+currency and in KES, Including tax)? 
+Sales 
+What did we sell, to whom, in what quantity, at what price, and for what total value? 
+Receivables 
+What payments have we received, and what does each customer still owe? 
+Payables 
+What payments have we made to suppliers, and what does Tarita still owe each supplier? 
+Tarita Petroleum Management System (TPMS)  |  System Documentation, Part 1  |  Draft v1.0 
+Page 2 
+Area 
+Questions TPMS must answer 
+Stock 
+What is our current product position? 
+Performance 
+What profit or margin did we make by product, purchase, or customer? 
+Operations 
+What do management and operational reports show for any period? 
+4. System scope 
+4.1 In scope 
+Area 
+What TPMS records 
+A. Supplier management 
+Suppliers and importers from whom Tarita buys petroleum products (for example, Gulf 
+Energy Limited). 
+B. Product management 
+Petroleum products traded by Tarita. Initially PMS and AGO; the design must allow 
+more products to be added later. 
+C. Fuel procurement 
+Purchases from suppliers: supplier, product, quantity, purchase price, and total cost. 
+D. Fuel allocation 
+Product, allocation period, allocated quantity, supplier or source, lifted quantity, and 
+remaining quantity. EG. (PMS 890 MT, AGO 1,073 MT) show the kind of data to be 
+held. Also, in M3/ Liters. 
+E. Product movement 
+Movements linked to Tarita's purchases and sales, keeping allocated, 
+purchased, received, and sold quantities as separate records. Product 
+movements must also retain the Local/Transit classification where applicable. 
+F. Wholesale sales 
+Sales to customers and retailers: customer, product, quantity, selling price, 
+Local/Transit classification, eTIMS VAT tax amount, and total sales value. 
+G. Customer 
+management 
+Name, contact information, KRA PIN, billing and delivery information, credit terms, 
+account balance, and transaction history. 
+H. Invoicing 
+Invoices generated from wholesale sales. 
+I. Payments 
+Payments received from customers, and the resulting outstanding balance on each 
+invoice. 
+J. Purchase costing 
+Purchase costs, including foreign-currency invoices, exchange rates, KES 
+equivalents, import tax values, and taxes paid/associated with the specific 
+product entry or receipt. 
+5. Core business flow 
+The baseline TPMS flow follows the product and the money from allocation to reconciliation. Purchase 
+costing runs alongside purchase and receipt. Allocation applies where a supplier allocation exists. 
+1  Allocation 
+→ 
+2  Purchase 
+→ 
+3  Lifting / Receipt 
+ 
+ 
+ 
+ 
+↓ 
+6 Customer Delivery 
+← 
+5 Wholesale Sale 
+← 
+4 Stock 
+↓ 
+ 
+ 
+ 
+ 
+7  Invoice 
+→ 
+8  Payment 
+→ 
+9  Reconciliation 
+ 
+Figure 2. Follow the arrows: left to right on the first row, right to left on the second, left to right on the third. Teal steps mainly 
+concern the supplier side and money; navy steps concern product and delivery. 
+Tarita Petroleum Management System (TPMS)  |  System Documentation, Part 1  |  Draft v1.0 
+Page 3 
+6. The four quantities TPMS must distinguish 
+Allocated, purchased, received, and sold quantities are different facts. They must be held in separate fields 
+and never combined into a single "quantity". 
+Quantity 
+Meaning 
+Notes 
+Allocation 
+Amount allocated to Tarita for a period. 
+Example provided: PMS 890 MT, AGO 
+1,073 MT. 
+Purchase 
+Amount Tarita orders or purchases from its 
+supplier. 
+Linked to supplier and cost. 
+Receipt / Lifting 
+Amount actually lifted or received under the 
+transaction. 
+May differ from the amount purchased. 
+Sale 
+Amount Tarita sells to its customer. 
+Linked to customer, price, and invoice. 
+ 
+Design rule: the gaps between allocation, purchase, receipt, and sale are management information. TPMS must 
+report each quantity on its own and show the differences between them. 
+7. Currency and purchase costing 
+Tarita's procurement may be invoiced in USD, while its accounting and sales are in Kenya Shillings (KES). 
+TPMS must therefore support foreign-currency purchases and their KES equivalent. 
+Costing element 
+Example from information provided 
+Product 
+AGO 
+Quantity 
+261.64 m3 
+Supplier / import source 
+Recorded per purchase 
+Invoice currency and value 
+USD invoice value 
+Exchange rate 
+USD/KES rate applied 
+Invoice value in KES 
+Converted value 
+Import tax value 
+Recorded per purchase 
+ 
+Requirements: 
+• Preserve both the original transaction currency amount and the converted KES value. 
+• Store the exchange rate used on each transaction. Recording the rate's date and source is 
+recommended so figures can be audited. 
+• Do not restate past transactions when exchange rates change. 
+8. Tax, Product Entry and Local/Transit Classification 
+Tax and market classification are core transaction attributes in TPMS. Tax information must remain linked to 
+the specific product entry/receipt or sale to which it relates. Product transactions must also be capable of 
+being classified as Local or Transit where applicable. 
+8.1 Tax associated with product entry 
+When petroleum product enters Tarita's records through a purchase, lifting, or receipt, TPMS shall capture 
+the applicable tax paid or associated with that specific product entry. The tax shall not be treated only as a 
+general expense detached from the product transaction. 
+The product-entry record should be capable of identifying: 
+• Product 
+Tarita Petroleum Management System (TPMS)  |  System Documentation, Part 1  |  Draft v1.0 
+Page 4 
+• Quantity and unit 
+• Supplier/import source 
+• Purchase or receipt reference 
+• Invoice value and currency 
+• Exchange rate and KES equivalent where applicable 
+• Applicable tax type 
+• Tax amount paid/associated with the entry 
+• Tax reference or supporting document where applicable 
+• Entry/receipt date 
+8.2 Local and Transit classification 
+TPMS shall distinguish petroleum product transactions classified as Local from those classified as Transit. 
+This classification shall be available at the appropriate product movement, sales, stock and reporting levels, 
+so that Tarita can separately identify local and transit quantities and values. 
+The system shall therefore be able to answer: 
+• How much of each product is classified as Local? 
+• How much of each product is classified as Transit? 
+• What quantity and value was sold locally? 
+• What quantity and value was sold as Transit? 
+• What tax was associated with the relevant product entry or sale? 
+• What is the Local/Transit position for reporting purposes? 
+8.3 Design rule 
+Local/Transit classification and tax information must remain traceable to the underlying transaction. They 
+must not be maintained only as summary figures on management reports. 
+8. Transaction and master data structure 
+Conceptual content of the two core transactions and the main master records. Detailed field definitions will 
+follow in the data design stage. 
+Purchase / Tax Entry 
+Supplier 
+Product 
+Quantity and unit 
+Local/Transit status where applicable 
+Currency 
+Unit cost and total cost 
+Exchange rate 
+KES equivalent 
+Tax type and tax paid 
+Taxes and charges 
+Reference documents 
+ 
+Customer 
+Product 
+Quantity 
+Selling price and currency 
+Total value 
+Invoice 
+Delivery / outturn reference 
+Payment status 
+ 
+Master record 
+Key content 
+Supplier 
+Name, contact details, products supplied, purchase history. 
+Product 
+PMS, AGO, and any future products; units of measure. 
+Customer 
+Name, contacts, KRA PIN, billing and delivery details, credit terms, balance, transaction 
+history. 
+Tarita Petroleum Management System (TPMS)  |  System Documentation, Part 1  |  Draft v1.0 
+Page 5 
+9. High-level TPMS modules 
+# 
+Module 
+Purpose 
+1 
+Dashboard 
+Management overview of purchases, sales, stock, and receivables. 
+2 
+Suppliers 
+Supplier and importer master data. 
+3 
+Products 
+Product master (PMS, AGO, extensible). 
+4 
+Allocations 
+Allocated, lifted, and remaining quantities by period. 
+5 
+Purchases 
+Supplier purchases, including foreign-currency purchases. 
+6 
+Product Movements 
+Movements linked to purchases and sales, including tax linkage and 
+Local/Transit classification where applicable. 
+7 
+Customers 
+Customer master, credit terms and limits, balances. 
+8 
+Wholesale Sales 
+Sales to retailers and customers. 
+9 
+Outturn / Delivery 
+Delivery and outturn records for sales. 
+10 
+Invoicing 
+Customer invoices from sales. 
+11 
+Payments 
+Payments received and outstanding balances. 
+12 
+Pricing 
+Purchase and selling prices. 
+13 
+Costing 
+Purchase cost build-up and margin. 
+14 
+Reports 
+Operational and management reporting, including Local/Transit stock 
+and sales, tax, receivables and payables. 
+15 
+Users and Permissions 
+Role-based access to modules and actions. 
+16 
+Audit Trail 
+Record of who changed what, and when. 
+10. Regulatory touchpoints and open questions 
+10.1 Regulatory touchpoints. 
+. 
+Area 
+Why it matters for TPMS 
+EPRA 
+Monthly total stock/sales reporting must be capable of separating Local and 
+Transit transactions and products such as PMS and AGO. Local/Transit 
+classification is therefore a core TPMS transaction and stock-reporting attribute. 
+KRA eTIMS 
+Keep records of VAT/tax amounts associated with each applicable sale and 
+invoices generated to each customer. Tax information must remain linked to the 
+underlying transaction. 
+Data Protection Act, 
+2019 
+Applies if TPMS holds personal data (for example, customer contacts); ODPC 
+registration may be required. 
+ 
+11. Next step: Part 2, Detailed Business Processes 
+Part 2 will document each Tarita process separately, using Tarita's own terminology and workflow rather 
+than generic filling-station processes: 
+1. Fuel allocation 
+2. Buying fuel from an importer such as Gulf Energy 
+Tarita Petroleum Management System (TPMS)  |  System Documentation, Part 1  |  Draft v1.0 
+Page 6 
+3. Purchase costing including tax 
+4. Fuel lifting and receipt 
+5. Stock management 
+6. Selling fuel to a retailer such as Diesel Power 
+7. Customer Outturn. 
+8. Customer invoicing 
+9. Customer payment 
+10. Purchase and sales reconciliation 
+11. Management reporting 
+Appendix: Glossary 
+Term 
+Meaning 
+OMC 
+Oil Marketing Company. 
+PMS / AGO 
+Premium Motor Spirit (petrol) / Automotive Gas Oil (diesel). 
+MT / m3 
+Metric tonnes / cubic metres, units used for product quantities. 
+Allocation 
+Quantity of product made available to Tarita for a period. 
+Lifting 
+Collection of product against a purchase or allocation. 
+Outturn 
+Working definition: the quantity confirmed as delivered to the customer (to be confirmed by 
+Tarita). 
+KES / USD 
+Kenya Shilling / United States Dollar. 
+EPRA 
+Monthly total stock/sales reporting must be capable of separating Local and Transit 
+transactions and products such as PMS and AGO. Local/Transit classification is 
+therefore a core TPMS transaction and stock-reporting attribute. 
+KRA / eTIMS 
+Kenya Revenue Authority / Electronic Tax Invoice Management System. 
+Local 
+A petroleum transaction classified as local under the applicable Tarita/regulatory 
+treatment. 
+Transit 
+A petroleum transaction classified as transit under the applicable Tarita/regulatory 
+treatment. 
+Product Entry Tax 
+Tax paid or associated with a specific petroleum product entry, purchase, lifting, or 
+receipt, retained against that transaction. 
+ 

@@ -1,0 +1,212 @@
+{
+  "account_info": {
+    "provider": "ProTrack365",
+    "base_url": "https://api.protrack365.com",
+    "documentation_url": "https://www.protrack365.com/api.jsp",
+    "account": "NEXTWAVEENERGY",
+    "password": "100100",
+    "auth_algorithm": "md5(md5(password) + unix_time_seconds)",
+    "token_ttl_seconds": 7200
+  },
+  "fleet_count": 9,
+  "trucks": [
+    {
+      "registration_number": "KDT 991Q",
+      "model": "VT05S",
+      "imei": "355139086515480",
+      "sim_card": "+254798845827",
+      "iccid": "89254021434289636592",
+      "activated_date": "2026-09-10",
+      "activated_timestamp": 1789038425,
+      "expiration_date": "2027-09-17",
+      "expiration_timestamp": 1821186331,
+      "last_known_coordinates": {
+        "latitude": -1.502064,
+        "longitude": 37.086905
+      },
+      "last_known_location": "Machakos Depot Area",
+      "engine_status": "OFF",
+      "datastatus": 4,
+      "speed_kmh": 0,
+      "transporter": "NEXTWAVE ENERGY",
+      "capacity_litres": 45000,
+      "number_of_compartments": 3
+    },
+    {
+      "registration_number": "KDT 992Q",
+      "model": "VT05S",
+      "imei": "355139086522742",
+      "sim_card": "+254799394359",
+      "iccid": "89254021434289637210",
+      "activated_date": "2026-09-10",
+      "activated_timestamp": 1789040178,
+      "expiration_date": "2027-09-17",
+      "expiration_timestamp": 1821188100,
+      "last_known_coordinates": {
+        "latitude": -1.502009,
+        "longitude": 37.086814
+      },
+      "last_known_location": "Machakos Depot Area",
+      "engine_status": "OFF",
+      "datastatus": 4,
+      "speed_kmh": 0,
+      "transporter": "NEXTWAVE ENERGY",
+      "capacity_litres": 45000,
+      "number_of_compartments": 3
+    },
+    {
+      "registration_number": "KDT 993Q",
+      "model": "VT05S",
+      "imei": "355139086516587",
+      "sim_card": "+254791543972",
+      "iccid": "89254021434289635834",
+      "activated_date": "2026-09-11",
+      "activated_timestamp": 1789117806,
+      "expiration_date": "2027-09-18",
+      "expiration_timestamp": 1821265933,
+      "last_known_coordinates": {
+        "latitude": -1.307059,
+        "longitude": 36.88489
+      },
+      "last_known_location": "Nairobi Terminal Area",
+      "engine_status": "OFF",
+      "datastatus": 4,
+      "speed_kmh": 0,
+      "transporter": "NEXTWAVE ENERGY",
+      "capacity_litres": 45000,
+      "number_of_compartments": 3
+    },
+    {
+      "registration_number": "KDX 991B",
+      "model": "VT05S",
+      "imei": "355139086520134",
+      "sim_card": "+254799395721",
+      "iccid": "89254021434289634563",
+      "activated_date": "2026-09-10",
+      "activated_timestamp": 1789044658,
+      "expiration_date": "2027-09-17",
+      "expiration_timestamp": 1821192585,
+      "last_known_coordinates": {
+        "latitude": -1.50199,
+        "longitude": 37.086794
+      },
+      "last_known_location": "Machakos Depot Area",
+      "engine_status": "OFF",
+      "datastatus": 4,
+      "speed_kmh": 0,
+      "transporter": "NEXTWAVE ENERGY",
+      "capacity_litres": 45000,
+      "number_of_compartments": 3
+    },
+    {
+      "registration_number": "KDX 992B",
+      "model": "VT05S",
+      "imei": "355139086522650",
+      "sim_card": "+254799467056",
+      "iccid": "89254021434289637863",
+      "activated_date": "2026-09-10",
+      "activated_timestamp": 1789047792,
+      "expiration_date": "2027-09-17",
+      "expiration_timestamp": 1821195629,
+      "last_known_coordinates": {
+        "latitude": -1.502157,
+        "longitude": 37.086765
+      },
+      "last_known_location": "Machakos Depot Area",
+      "engine_status": "OFF",
+      "datastatus": 4,
+      "speed_kmh": 0,
+      "transporter": "NEXTWAVE ENERGY",
+      "capacity_litres": 45000,
+      "number_of_compartments": 3
+    },
+    {
+      "registration_number": "KDX 993B",
+      "model": "VT05S",
+      "imei": "355139086523427",
+      "sim_card": "+254799466128",
+      "iccid": "89254021434289634720",
+      "activated_date": "2026-09-10",
+      "activated_timestamp": 1789044853,
+      "expiration_date": "2027-09-17",
+      "expiration_timestamp": 1821192946,
+      "last_known_coordinates": {
+        "latitude": -1.502042,
+        "longitude": 37.086875
+      },
+      "last_known_location": "Machakos Depot Area",
+      "engine_status": "OFF",
+      "datastatus": 4,
+      "speed_kmh": 0,
+      "transporter": "NEXTWAVE ENERGY",
+      "capacity_litres": 45000,
+      "number_of_compartments": 3
+    },
+    {
+      "registration_number": "KDX 994B",
+      "model": "VT05S",
+      "imei": "355139086522866",
+      "sim_card": "+254791641462",
+      "iccid": "89254021434289635842",
+      "activated_date": "2026-09-10",
+      "activated_timestamp": 1789046359,
+      "expiration_date": "2027-09-17",
+      "expiration_timestamp": 1821194233,
+      "last_known_coordinates": {
+        "latitude": -1.501957,
+        "longitude": 37.086929
+      },
+      "last_known_location": "Machakos Depot Area",
+      "engine_status": "OFF",
+      "datastatus": 4,
+      "speed_kmh": 0,
+      "transporter": "NEXTWAVE ENERGY",
+      "capacity_litres": 45000,
+      "number_of_compartments": 3
+    },
+    {
+      "registration_number": "KDX 996B",
+      "model": "VT05S",
+      "imei": "355139086518948",
+      "sim_card": "+254799466373",
+      "iccid": "89254021434289637830",
+      "activated_date": "2026-09-11",
+      "activated_timestamp": 1789107878,
+      "expiration_date": "2027-09-17",
+      "expiration_timestamp": 1821255876,
+      "last_known_coordinates": {
+        "latitude": -1.306727,
+        "longitude": 36.885242
+      },
+      "last_known_location": "Nairobi Terminal Area",
+      "engine_status": "OFF",
+      "datastatus": 4,
+      "speed_kmh": 0,
+      "transporter": "NEXTWAVE ENERGY",
+      "capacity_litres": 45000,
+      "number_of_compartments": 3
+    },
+    {
+      "registration_number": "KDX 997B",
+      "model": "VT05S",
+      "imei": "355139086520019",
+      "sim_card": "+254796256055",
+      "iccid": "89254021434289635347",
+      "activated_date": "2026-09-10",
+      "activated_timestamp": 1789042299,
+      "expiration_date": "2027-09-17",
+      "expiration_timestamp": 1821190269,
+      "last_known_coordinates": {
+        "latitude": -1.502015,
+        "longitude": 37.086845
+      },
+      "last_known_location": "Machakos Depot Area",
+      "engine_status": "OFF",
+      "datastatus": 4,
+      "speed_kmh": 0,
+      "transporter": "NEXTWAVE ENERGY",
+      "capacity_litres": 45000,
+      "number_of_compartments": 3
+    }
+  ]
+}

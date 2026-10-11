@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <!-- Background Gradient: Rich Deep Navy into Petroleum Midnight -->
+    <linearGradient id="depotBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1e35" />
+      <stop offset="100%" stop-color="#1e3a5f" />
+    </linearGradient>
+
+    <!-- Flame & Fuel Oil Gradient: Golden Amber to Fiery Orange -->
+    <linearGradient id="fuelFlame" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ea580c" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fde047" />
+    </linearGradient>
+
+    <!-- Inner Core Glow Gradient -->
+    <linearGradient id="flameCore" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+
+    <!-- Subtle Drop Shadow -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#f59e0b" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Badge -->
+  <rect width="64" height="64" rx="16" fill="url(#depotBg)" />
+  <rect x="1" y="1" width="62" height="62" rx="15" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.3" />
+
+  <!-- Outer Petroleum Drop / Flame Emblem -->
+  <path
+    filter="url(#glow)"
+    d="M32 10 C32 10, 47 27, 47 38 C47 46.284 40.284 53 32 53 C23.716 53 17 46.284 17 38 C17 27 32 10 32 10 Z"
+    fill="url(#fuelFlame)"
+  />
+
+  <!-- Dynamic Fuel Flow Cutout / Energy Wave -->
+  <path
+    d="M32 16 C32 16, 42 29, 42 37 C42 43 38 47.5 33 48.5 C36.5 45 37 40 35 36 C33.5 33 30 31.5 30.5 27 C31 23 32 16 32 16 Z"
+    fill="url(#flameCore)"
+    opacity="0.9"
+  />
+
+  <!-- High-Energy Spark / Flow Dot -->
+  <circle cx="27" cy="40" r="3.5" fill="#ffffff" opacity="0.95" />
+</svg>
