@@ -12,7 +12,6 @@ import {
 } from 'lucide-react';
 import { KPICard } from '../components/common/KPICard';
 import { StockOverview } from '../components/dashboard/StockOverview';
-import { TankUtilization } from '../components/dashboard/TankUtilization';
 import { MovementTimeline } from '../components/dashboard/MovementTimeline';
 import { RecentDeliveries } from '../components/dashboard/RecentDeliveries';
 import { StockSummaryTable } from '../components/dashboard/StockSummaryTable';
@@ -147,9 +146,8 @@ export function Dashboard() {
       </div>
 
       {/* Row 3 — Charts & Timeline */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <StockOverview data={data?.stockOverview} />
-        <TankUtilization tanks={data?.tanks} />
         <MovementTimeline movements={data?.movements} />
       </div>
 
